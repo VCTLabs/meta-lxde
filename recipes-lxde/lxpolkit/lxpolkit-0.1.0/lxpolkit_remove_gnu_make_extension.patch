@@ -1,0 +1,11 @@
+--- lxpolkit-0.1.0/data/ui/Makefile.am~	2011-07-24 13:59:15.000000000 +0200
++++ lxpolkit-0.1.0/data/ui/Makefile.am	2012-08-12 17:09:53.000000000 +0200
+@@ -12,7 +12,7 @@
+ 	$(NULL)
+ 
+ # Purge GtkBuilder UI files
+-%.ui: %.glade
++.ui: .glade
+ 	cp $< $@
+ 	$(top_srcdir)/src/xml-purge $@
+ 

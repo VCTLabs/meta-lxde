@@ -2,7 +2,7 @@ DESCRIPTION = "LXDE Display Manager"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 
-PR = "r2"
+PR = "r3"
 
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
@@ -19,7 +19,10 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz \
            file://${P}-oe-xsession.patch \
            file://${P}-uclibc-friendly.patch \
            file://xinitrc \
-           file://init"
+           file://init \
+           file://missingAM_GLIB_GNU_GETTEXT.patch \
+           file://fix_event_check_bug_caused_cpu_100.patch \
+"
 SRC_URI[md5sum] = "8da1cfc2be6dc9217c85a7cf51e1e821"
 SRC_URI[sha256sum] = "9e0d0a5672fcf31a18de8178ce73eab1723d6ae7097dfe41e9fe2c46e180cf08"
 
