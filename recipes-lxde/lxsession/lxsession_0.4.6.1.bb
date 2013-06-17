@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a76102f7f48780284bee49e6edaeb5a9"
 
 COMMON_DEPENDS = "gtk+ glib-2.0 lxde-common dbus"
 DEPENDS = "${COMMON_DEPENDS} xproto virtual/libx11"
-RDEPENDS = "${COMMON_DEPENDS} upower dbus-x11"
+RDEPENDS_{PN} = "${COMMON_DEPENDS} upower dbus-x11"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz"
 SRC_URI[md5sum] = "e456b64c5ab3652a4dec661ec706dc6e"

@@ -4,9 +4,9 @@ SECTION = "x11/wm"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
-PR = "r3"
+PR = "r4"
 
-RDEPENDS = "glib-2.0 libxml2 pango imlib2 startup-notification libxft libxrandr libxt"
+RDEPENDS_{PN} = "glib-2.0 libxml2 pango imlib2 startup-notification libxft libxrandr libxt"
 DEPENDS = "${RDEPENDS} xextproto xf86vidmodeproto"
 RDEPENDS_${PN} = "openbox-theme-clearlooks"
 

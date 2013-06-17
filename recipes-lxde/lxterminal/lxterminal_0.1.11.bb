@@ -4,7 +4,7 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
-RDEPENDS = "gtk+ vte glib-2.0"
+RDEPENDS_{PN} = "gtk+ vte glib-2.0"
 DEPENDS = "${RDEPENDS} intltool-native"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz"

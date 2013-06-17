@@ -5,7 +5,7 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=597980c597fe9ce16d7b6b19c44cfced"
 
-RDEPENDS = "gtk+ lxde-icon-theme"
+RDEPENDS_{PN} = "gtk+ lxde-icon-theme"
 DEPENDS = "${RDEPENDS}"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz \

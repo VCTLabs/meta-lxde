@@ -6,7 +6,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS = "glib-2.0 gtk+"
-RDEPENDS = "lxde-common lxsession"
+RDEPENDS_{PN} = "lxde-common lxsession"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.gz"
 SRC_URI[md5sum] = "1e763a9b7f297ba964cd41b30edfccd7"

@@ -9,7 +9,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 DEPENDS = "gtk+ glib-2.0 libglade startup-notification openbox"
-RDEPENDS = "openbox"
+RDEPENDS_{PN} = "openbox"
 
 SRC_URI = "git://git.openbox.org/dana/obconf;branch=master;protocol=git \
            file://obconf-lxde"
