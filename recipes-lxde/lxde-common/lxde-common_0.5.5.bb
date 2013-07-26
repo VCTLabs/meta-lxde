@@ -5,6 +5,8 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=597980c597fe9ce16d7b6b19c44cfced"
 
+PR = "r1"
+
 RDEPENDS_{PN} = "gtk+ lxde-icon-theme"
 DEPENDS = "${RDEPENDS}"
 
@@ -17,8 +19,7 @@ inherit autotools pkgconfig update-alternatives
 
 FILES_${PN} += "${datadir}/lxde/ ${datadir}/lxpanel ${datadir}/xsessions"
 
-ALTERNATIVE_PATH = "${bindir}/startlxde"
-ALTERNATIVE_NAME = "x-window-manager"
-ALTERNATIVE_LINK = "${bindir}/x-window-manager"
-ALTERNATIVE_PRIORITY = "15"
-
+ALTERNATIVE_${PN} = "x-window-manager"
+ALTERNATIVE_LINK_NAME[x-window-manager] = "${bindir}/x-window-manager"
+ALTERNATIVE_TARGET[x-window-manager] = "${bindir}/startlxde"
+ALTERNATIVE_PRIORITY[x-window-manager] = "15"

@@ -4,7 +4,7 @@ SECTION = "x11/wm"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
-PR = "r4"
+PR = "r5"
 
 RDEPENDS_{PN} = "glib-2.0 libxml2 pango imlib2 startup-notification libxft libxrandr libxt"
 DEPENDS = "${RDEPENDS} xextproto xf86vidmodeproto"
@@ -22,10 +22,10 @@ EXTRA_OECONF += "\
     --with-x\
     "
 
-ALTERNATIVE_PATH = "${bindir}/openbox"
-ALTERNATIVE_NAME = "x-window-manager"
-ALTERNATIVE_LINK = "${bindir}/x-window-manager"
-ALTERNATIVE_PRIORITY = "10"
+ALTERNATIVE_${PN} = "x-window-manager"
+ALTERNATIVE_LINK_NAME[x-window-manager] = "${bindir}/x-window-manager"
+ALTERNATIVE_TARGET[x-window-manager] = "${bindir}/openbox"
+ALTERNATIVE_PRIORITY[x-window-manager] = "10"
 
 PACKAGES =+ "${PN}-gnome ${PN}-gnome-dbg ${PN}-kde ${PN}-kde-dbg"
 FILES_${PN} += "${datadir}/gnome ${datadir}/xsessions"
