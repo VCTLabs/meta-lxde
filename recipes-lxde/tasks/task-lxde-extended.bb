@@ -16,6 +16,5 @@ RRECOMMENDS_${PN} = " \
     lxtask \
     lxinput \
     lxshortcut \
-    lxsession-edit \
     lxpolkit \
     "
