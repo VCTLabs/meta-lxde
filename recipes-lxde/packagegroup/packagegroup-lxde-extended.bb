@@ -5,10 +5,10 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 
 PR = "r0"
 
-inherit task
+inherit packagegroup
 
 RDEPENDS_${PN} = "\
-    task-lxde-base \
+    packagegroup-lxde-base \
     "
 
 RRECOMMENDS_${PN} = " \
