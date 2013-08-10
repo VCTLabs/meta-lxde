@@ -17,6 +17,4 @@ SRC_URI[sha256sum] = "eff03e573b561cabe81c5d015d825e3d998e98d6621040113d7df471c8
 
 inherit autotools pkgconfig gettext
 
-EXTRA_OECONF += "--enable-dbus"
-
 FILES_${PN} += "${datadir}/lxsession"
