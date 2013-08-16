@@ -8,7 +8,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=9d19a9495cc76dc96b703fb4aa157183"
 
 RDEPENDS_{PN} = "gtk+ menu-cache lxmenu-data libxmu libxpm alsa-lib"
-DEPENDS = "${RDEPENDS}"
+DEPENDS = "gtk+ menu-cache lxmenu-data libxmu libxpm alsa-lib"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz \
            file://lxpanel-0.5.6-broken-apps.patch \

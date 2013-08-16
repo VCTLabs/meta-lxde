@@ -6,7 +6,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 RDEPENDS_{PN} = "glib-2.0"
-DEPENDS = "${RDEPENDS} intltool-native"
+DEPENDS = "glib-2.0 intltool-native"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz"
 SRC_URI[md5sum] = "ac4a9ea77db68d3db3f9f53cc75af66a"

@@ -6,9 +6,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 PR = "r5"
 
-RDEPENDS_{PN} = "glib-2.0 libxml2 pango imlib2 startup-notification libxft libxrandr libxt"
-DEPENDS = "${RDEPENDS} xextproto xf86vidmodeproto"
-RDEPENDS_${PN} = "openbox-theme-clearlooks"
+RDEPENDS_{PN} = "glib-2.0 libxml2 pango imlib2 startup-notification libxft libxrandr libxt openbox-theme-clearlooks"
+DEPENDS = "glib-2.0 libxml2 pango imlib2 startup-notification libxft libxrandr libxt xextproto xf86vidmodeproto"
 
 SRC_URI = "http://openbox.org/dist/openbox/openbox-${PV}.tar.gz"
 SRC_URI[md5sum] = "00441b53cf14c03566c8e82643544ff9"

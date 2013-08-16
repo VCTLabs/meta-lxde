@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=597980c597fe9ce16d7b6b19c44cfced"
 PR = "r1"
 
 RDEPENDS_{PN} = "gtk+ lxde-icon-theme"
-DEPENDS = "${RDEPENDS}"
+DEPENDS = "gtk+ lxde-icon-theme"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz \
            file://lxde-common-0.5.5-logout.patch"
