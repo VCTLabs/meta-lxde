@@ -9,7 +9,9 @@ RDEPENDS_{PN} = "glib-2.0"
 DEPENDS = "glib-2.0 intltool-native"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz"
-SRC_URI[md5sum] = "ac4a9ea77db68d3db3f9f53cc75af66a"
-SRC_URI[sha256sum] = "6b7c1627b5102d8301a8a3e845f673a7181a71dde32f6455abf22d03e392b89f"
+SRC_URI[md5sum] = "fd296c317a235782fbbd37b6f54bc985"
+SRC_URI[sha256sum] = "08e658021faecd4eefb26cc21b207251a6b4e844e131cec491471aba9eaea122"
+
+FILES_${PN}-dbg += "${libdir}/menu-cache/menu-cache/.debug"
 
 inherit autotools gettext pkgconfig
