@@ -9,11 +9,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "gtk+"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.gz \
+SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz \
            file://empty-cursor.patch \
-           file://lxappearance_missing_am_prog_cc_c_o.patch \
 "
-SRC_URI[md5sum] = "a088c6ef08fd25df7dc3be5b07168bbe"
-SRC_URI[sha256sum] = "a446aaad5572dd42845d41a20db76ca1fb1b93e3827db1bce243c9877e5996f4"
+SRC_URI[md5sum] = "c7b8c18368f757a8a60f21cb46d7d9b3"
+SRC_URI[sha256sum] = "beffc2553084ad32ab7bb424b9440c606410ca584770910a1c6ce2f9812ce5e8"
 
 inherit autotools gettext pkgconfig
