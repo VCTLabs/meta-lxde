@@ -12,7 +12,7 @@ DEPENDS = "gtk+"
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz \
            file://empty-cursor.patch \
 "
-SRC_URI[md5sum] = "c7b8c18368f757a8a60f21cb46d7d9b3"
-SRC_URI[sha256sum] = "beffc2553084ad32ab7bb424b9440c606410ca584770910a1c6ce2f9812ce5e8"
+SRC_URI[md5sum] = "a67113681d9d0a6d936289909aed5782"
+SRC_URI[sha256sum] = "8cae82e6425ba8a0267774e4d10096df2d91b0597520058331684a5ece068b4c"
 
 inherit autotools gettext pkgconfig
