@@ -2,12 +2,14 @@ DESCRIPTION = "LXDE Display Manager"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 
-PR = "r3"
+PR = "r4"
 
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 DEPENDS = "gtk+ consolekit libxcb ${@base_contains('DISTRO_FEATURES', 'pam', 'libpam', '', d)}"
+
+RDEPENDS_${PN} = "xinit"
 
 RCONFLICTS_${PN} = "xserver-nodm-init"
 
