@@ -7,7 +7,7 @@ PR = "r4"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-DEPENDS = "gtk+ consolekit libxcb ${@base_contains('DISTRO_FEATURES', 'pam', 'libpam', '', d)}"
+DEPENDS += "virtual/libintl intltool-native iso-codes gtk+ consolekit libxcb ${@base_contains('DISTRO_FEATURES', 'pam', 'libpam', '', d)}"
 
 RDEPENDS_${PN} = "xinit"
 
@@ -24,6 +24,7 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz \
            file://init \
            file://missingAM_GLIB_GNU_GETTEXT.patch \
            file://fix_event_check_bug_caused_cpu_100.patch \
+           file://lxdm-configure-ac.patch \
 "
 SRC_URI[md5sum] = "8da1cfc2be6dc9217c85a7cf51e1e821"
 SRC_URI[sha256sum] = "9e0d0a5672fcf31a18de8178ce73eab1723d6ae7097dfe41e9fe2c46e180cf08"
@@ -34,6 +35,10 @@ inherit autotools pkgconfig gettext update-rc.d
 
 INITSCRIPT_NAME = "lxdm"
 INITSCRIPT_PARAMS = "start 9 5 2 . stop 20 0 1 6 ."
+
+do_configure_prepend() {
+    cp ${STAGING_DATADIR}/gettext/po/Makefile.in.in ${S}/po/
+}
 
 do_install_append () {
     rm ${D}/${sysconfdir}/pam.d/lxdm
