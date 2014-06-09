@@ -1,0 +1,11 @@
+--- lxsession-0.4.9.2/configure.ac.orig	2014-04-30 17:40:58.544706818 +0200
++++ lxsession-0.4.9.2/configure.ac	2014-04-30 17:38:27.425430368 +0200
+@@ -2,7 +2,7 @@
+ AC_INIT([lxsession],[0.4.9.2],[],[lxsession])
+ 
+ # Autotols programs
+-AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign])
++AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign subdir-objects])
+ AC_PREREQ([2.69])
+ IT_PROG_INTLTOOL([0.40.0],[no-xml])
+ 
