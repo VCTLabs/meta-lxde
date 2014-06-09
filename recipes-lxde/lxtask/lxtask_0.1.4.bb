@@ -7,7 +7,7 @@ PR = "r1"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
-DEPENDS = "gtk+ glib-2.0"
+DEPENDS = "virtual/libintl intltool-native gtk+ glib-2.0"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz"
 SRC_URI += "file://lxtask-963dea395cc58eae940b85e242f0d84fb7d2eaa5.patch"
