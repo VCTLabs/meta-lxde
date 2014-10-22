@@ -1,5 +1,5 @@
 --- lxmenu-data-0.1.2/configure.in~	2011-07-23 22:05:34.000000000 +0200
-+++ lxmenu-data-0.1.2/configure.in	2014-04-30 18:20:09.985465810 +0200
++++ lxmenu-data-0.1.2/configure.ac	2014-04-30 18:20:09.985465810 +0200
 @@ -6,7 +6,10 @@
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Name of default gettext domain])
  AC_SUBST(GETTEXT_PACKAGE)
