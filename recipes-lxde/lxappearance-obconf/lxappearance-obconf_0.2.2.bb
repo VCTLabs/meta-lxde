@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "menu-cache lxappearance"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz"
-SRC_URI[md5sum] = "8bf23c90febe6a655e0f86c80e44725d"
-SRC_URI[sha256sum] = "b7cfda429b0bd6ed5cca1b3ba9fe3f7bc058f978739cad9817dddd181a1d6692"
+SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.xz"
+SRC_URI[md5sum] = "d958ac5514ba1707429ff6794ab59abf"
+SRC_URI[sha256sum] = "596a04078529b8ef594253bc8628feae97629f2e04f10e3ded5b84ff5706380b"
 
 inherit autotools gettext pkgconfig
 
