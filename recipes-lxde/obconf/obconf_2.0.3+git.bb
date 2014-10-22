@@ -25,7 +25,7 @@ FILES_${PN} += "${datadir}/mime ${datadir}/mimelnk"
 inherit autotools pkgconfig gettext mime
 
 do_configure_prepend () {
-	autopoint || bbfatal "autopoint failed"
+	autopoint --force || bbfatal "autopoint failed"
 }
 
 do_configure_append () {
