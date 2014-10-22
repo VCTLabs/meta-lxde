@@ -9,10 +9,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "gtk+"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz \
-           file://empty-cursor.patch \
-"
-SRC_URI[md5sum] = "a67113681d9d0a6d936289909aed5782"
-SRC_URI[sha256sum] = "8cae82e6425ba8a0267774e4d10096df2d91b0597520058331684a5ece068b4c"
+SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz"
+SRC_URI[md5sum] = "79740125628a8374c1101cf26e558fa5"
+SRC_URI[sha256sum] = "09e38aff39708f089cd2f421d97f99c3b11f03f88979b922dd42362956d816de"
 
 inherit autotools gettext pkgconfig
