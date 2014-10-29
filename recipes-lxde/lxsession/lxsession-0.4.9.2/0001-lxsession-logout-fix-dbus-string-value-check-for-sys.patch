@@ -1,0 +1,31 @@
+From 2b320b7f64fa04d59a04b00b2f0877c6d3427252 Mon Sep 17 00:00:00 2001
+From: Stefan Agner <stefan.agner@toradex.com>
+Date: Wed, 29 Oct 2014 14:35:25 +0100
+Subject: [PATCH] lxsession-logout: fix dbus string value check for systemd
+
+The string values have not been checked to be equal to "yes" or
+"challenge", but to be other than equal. This is always true because
+we compare two different strings. Fix the check, either "yes" or
+"challenge" need to be returned to return TRUE now.
+
+Upstream-Status: submitted
+---
+ lxsession-logout/lxsession-logout-dbus-interface.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lxsession-logout/lxsession-logout-dbus-interface.c b/lxsession-logout/lxsession-logout-dbus-interface.c
+index 3404615..6dde18a 100644
+--- a/lxsession-logout/lxsession-logout-dbus-interface.c
++++ b/lxsession-logout/lxsession-logout-dbus-interface.c
+@@ -189,7 +189,7 @@ systemd_query (const gchar *function, gboolean default_result, GError **error)
+     if (g_variant_is_of_type (result, G_VARIANT_TYPE ("(s)")))
+     {
+ 			g_variant_get (result, "(s)", &str);
+-			if (g_strcmp0 (str, "yes") || g_strcmp0 (str, "challenge"))
++			if (!g_strcmp0 (str, "yes") || !g_strcmp0 (str, "challenge"))
+ 				function_result = TRUE;
+ 			else
+ 				function_result = default_result;
+-- 
+2.1.2
+
