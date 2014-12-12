@@ -12,4 +12,4 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.xz"
 SRC_URI[md5sum] = "250f0ebb09c1e02f430f951911ba1259"
 SRC_URI[sha256sum] = "183deaed658c4a0ba937fc349e88330267b8309fc51f67f7ec4b4768ccc66b76"
 
-inherit autotools gettext pkgconfig
+inherit autotools-brokensep gettext pkgconfig

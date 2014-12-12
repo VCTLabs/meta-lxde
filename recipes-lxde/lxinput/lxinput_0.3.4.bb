@@ -11,4 +11,4 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz"
 SRC_URI[md5sum] = "5deb8b5cffb8e385622051e4a7b103d0"
 SRC_URI[sha256sum] = "6e37074e406a05792f6eaac029638bd02fe88926f20736d73dcb5113da825c24"
 
-inherit autotools gettext pkgconfig
+inherit autotools-brokensep gettext pkgconfig

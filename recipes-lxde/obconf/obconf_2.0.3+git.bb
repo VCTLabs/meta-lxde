@@ -22,7 +22,7 @@ S = "${WORKDIR}/git"
 
 FILES_${PN} += "${datadir}/mime ${datadir}/mimelnk"
 
-inherit autotools pkgconfig gettext mime
+inherit autotools-brokensep pkgconfig gettext mime
 
 do_configure_prepend () {
 	autopoint --force || bbfatal "autopoint failed"
