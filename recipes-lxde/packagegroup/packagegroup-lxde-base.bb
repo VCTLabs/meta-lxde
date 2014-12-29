@@ -7,16 +7,16 @@ PR = "r0"
 inherit packagegroup
 
 RDEPENDS_${PN} = " \
-        lxappearance \
-        lxde-icon-theme \
-        lxde-common \
-        lxmenu-data \
-        lxpanel \
-        lxsession \
-		lxterminal \
-        pcmanfm \
-        openbox \
-        obconf \
-        hicolor-icon-theme \
-        gtk-theme-clearlooks \
-        "
+    lxappearance \
+    lxde-icon-theme \
+    lxde-common \
+    lxmenu-data \
+    lxpanel \
+    lxsession \
+    lxterminal \
+    pcmanfm \
+    openbox \
+    obconf \
+    hicolor-icon-theme \
+    gtk-theme-clearlooks \
+"

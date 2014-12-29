@@ -9,10 +9,10 @@ inherit packagegroup
 
 RDEPENDS_${PN} = "\
     packagegroup-lxde-base \
-    "
+"
 
 RRECOMMENDS_${PN} = " \
     gpicview \
     lxtask \
     lxinput \
-    "
+"
