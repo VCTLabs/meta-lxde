@@ -15,6 +15,4 @@ RRECOMMENDS_${PN} = " \
     gpicview \
     lxtask \
     lxinput \
-    lxshortcut \
-    lxpolkit \
     "
