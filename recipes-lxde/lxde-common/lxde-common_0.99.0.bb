@@ -7,13 +7,13 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=597980c597fe9ce16d7b6b19c44cfced"
 
 PR = "r1"
 
-RDEPENDS_{PN} = "gtk+ lxde-icon-theme"
-DEPENDS = "gtk+ lxde-icon-theme"
+RDEPENDS_{PN} = "lxde-icon-theme"
+DEPENDS = "gtk+ lxde-icon-theme intltool-native"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.gz \
-           file://lxde-common-0.5.5-logout.patch"
-SRC_URI[md5sum] = "e51a6b2a815a89fda1f497b509465a97"
-SRC_URI[sha256sum] = "ee18a09b64a442b33c1b54f0269649a1b4d9490460c400a07ed785d41bf6dde6"
+SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.xz"
+
+SRC_URI[md5sum] = "5a417f5a0e5b510a0c018b66b0dc4081"
+SRC_URI[sha256sum] = "43f17bf92e4695fdf2476c1964990d1d61c832726dd0778ae4cb462b9d29335c"
 
 inherit autotools pkgconfig update-alternatives
 
