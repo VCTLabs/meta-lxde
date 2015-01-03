@@ -6,7 +6,7 @@ PR = "r1"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
-DEPENDS = "menu-cache gtk+ intltool-native"
+DEPENDS = "menu-cache gtk+ intltool-native startup-notification"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.xz"
 SRC_URI[md5sum] = "8a21590c085ad82f4f50e4affb7ad0ab"
