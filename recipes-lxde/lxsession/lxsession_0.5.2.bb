@@ -7,9 +7,8 @@ PR = "r3"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a76102f7f48780284bee49e6edaeb5a9"
 
-COMMON_DEPENDS = "gtk+ glib-2.0 lxde-common dbus libgee"
-DEPENDS = "${COMMON_DEPENDS} xproto virtual/libx11"
-RDEPENDS_{PN} = "${COMMON_DEPENDS} upower dbus-x11"
+DEPENDS = "gtk+ glib-2.0 lxde-common dbus libgee xproto virtual/libx11 polkit dbus-glib"
+RDEPENDS_{PN} = "upower dbus-x11"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.xz"
 SRC_URI[md5sum] = "2957acccbf9ce37ef8205ec5424f8047"
