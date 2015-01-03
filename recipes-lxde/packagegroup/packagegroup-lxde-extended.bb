@@ -15,4 +15,6 @@ RRECOMMENDS_${PN} = " \
     gpicview \
     lxtask \
     lxinput \
+    lxrandr \
+    lxlauncher \
 "

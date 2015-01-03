@@ -15,8 +15,4 @@ RDEPENDS_${PN} = " \
     lxsession \
     lxterminal \
     pcmanfm \
-    openbox \
-    obconf \
-    hicolor-icon-theme \
-    gtk-theme-clearlooks \
 "
