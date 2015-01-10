@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=9d19a9495cc76dc96b703fb4aa157183"
 
 DEPENDS = "gtk+ menu-cache lxmenu-data libxmu libxpm alsa-lib libwnck wireless-tools pcmanfm libxml2 keybinder"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.xz \
+SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxpanel-${PV}.tar.xz \
            file://lxpanel-broken-apps.patch \
 "
 SRC_URI[md5sum] = "aa5bc73f4fe1d8006248a1f45f0a8a21"

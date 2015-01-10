@@ -29,23 +29,23 @@ ALTERNATIVE_PRIORITY[x-window-manager] = "10"
 PACKAGES =+ "${PN}-gnome ${PN}-gnome-dbg ${PN}-kde ${PN}-kde-dbg"
 FILES_${PN} += "${datadir}/gnome ${datadir}/xsessions"
 FILES_${PN}-gnome = "\
-    ${bindir}/${PN}-gnome-session \
+    ${bindir}/openbox-gnome-session \
     ${bindir}/gnome-panel-control \
     ${bindir}/gdm-control \
-    ${datadir}/xsessions/${PN}-gnome.desktop \
+    ${datadir}/xsessions/openbox-gnome.desktop \
     ${datadir}/gnome \
     "
 FILES_${PN}-gnome-dbg = "\
-    ${bindir}/.debug/${PN}-gnome-session \
+    ${bindir}/.debug/openbox-gnome-session \
     ${bindir}/.debug/gnome-panel-control \
     ${bindir}/.debug/gdm-control \
     "
 FILES_${PN}-kde = "\
-    ${bindir}/${PN}-kde-session \
-    ${datadir}/xsessions/${PN}-kde.desktop \
+    ${bindir}/openbox-kde-session \
+    ${datadir}/xsessions/openbox-kde.desktop \
     "
 FILES_${PN}-kde-dbg = "\
-    ${bindir}/.debug/${PN}-kde-session \
+    ${bindir}/.debug/openbox-kde-session \
     "
 
 PACKAGES_DYNAMIC += "${PN}-theme-*"

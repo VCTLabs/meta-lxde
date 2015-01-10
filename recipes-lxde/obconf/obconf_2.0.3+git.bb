@@ -29,7 +29,7 @@ do_configure_prepend () {
 }
 
 do_configure_append () {
-	sed -i -e "/^Exec/s:obconf.*$:obconf-lxde:" ${S}/${PN}.desktop || bbfatal "sed failed"
+	sed -i -e "/^Exec/s:obconf.*$:obconf-lxde:" ${S}/obconf.desktop || bbfatal "sed failed"
 }
 
 do_install_append () {

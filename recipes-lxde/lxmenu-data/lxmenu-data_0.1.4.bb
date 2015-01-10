@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=0964c689fcf4c21c6797ea87408416b6"
 
 DEPENDS = "intltool-native"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${PN}-${PV}.tar.xz  \
+SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxmenu-data-${PV}.tar.xz  \
            file://lxmenu-replace_am_glib_gnu_gettext.patch \
 "
 
