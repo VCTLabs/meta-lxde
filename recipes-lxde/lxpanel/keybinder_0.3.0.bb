@@ -1,4 +1,4 @@
-SUMMARY = "Library for registering global key bindings, for gtk-based applications"
+SUMMARY = "Library for registering global key bindings, for gtk applications"
 SECTION = "x11"
 
 PR = "r0"

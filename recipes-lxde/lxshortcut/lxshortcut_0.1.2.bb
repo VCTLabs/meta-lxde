@@ -1,4 +1,4 @@
-DESCRIPTION = "LXDE tool to edit desktop entry files"
+SUMMARY = "LXDE tool to edit desktop entry files"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 

@@ -1,4 +1,4 @@
-DESCRIPTION = "A standards compliant, fast, light-weight, extensible window manager"
+SUMMARY = "A standards compliant, fast, light-weight, extensible window manager"
 HOMEPAGE = "http://openbox.org"
 SECTION = "x11/wm"
 LICENSE = "GPLv2"

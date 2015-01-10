@@ -1,4 +1,4 @@
-DESCRIPTION = "LXDE Randr graphical frontend"
+SUMMARY = "LXDE Randr graphical frontend"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 

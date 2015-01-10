@@ -1,4 +1,4 @@
-DESCRIPTION = "LXDE Panel"
+SUMMARY = "LXDE Panel"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 

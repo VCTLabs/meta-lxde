@@ -1,4 +1,4 @@
-DESCRIPTION = "Data files for application menu "
+SUMMARY = "Data files for application menu "
 HOMEPAGE = "http://lxde.sourceforge.net/"
 SECTION = "x11"
 

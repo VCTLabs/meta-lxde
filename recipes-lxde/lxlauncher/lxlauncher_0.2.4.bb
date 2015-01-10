@@ -1,4 +1,4 @@
-DESCRIPTION = "LXDE Launcher"
+SUMMARY = "LXDE Launcher"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 PR = "r1"

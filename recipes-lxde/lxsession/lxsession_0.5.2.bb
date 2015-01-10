@@ -1,4 +1,4 @@
-DESCRIPTION = "LXDE session manager"
+SUMMARY = "LXDE session manager"
 HOMEPAGE = "http://lxde.sf.net/"
 SECTION = "x11"
 

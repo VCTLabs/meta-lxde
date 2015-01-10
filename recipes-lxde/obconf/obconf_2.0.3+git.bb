@@ -1,4 +1,4 @@
-DESCRIPTION = "Tool for configuring the Openbox window manager"
+SUMMARY = "Tool for configuring the Openbox window manager"
 HOMEPAGE = "http://openbox.org/wiki/ObConf:About"
 SECTION = "x11"
 

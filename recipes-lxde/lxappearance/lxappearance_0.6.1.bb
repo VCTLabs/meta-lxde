@@ -1,4 +1,4 @@
-DESCRIPTION = "LXDE GTK+ theme switcher"
+SUMMARY = "LXDE GTK+ theme switcher"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 

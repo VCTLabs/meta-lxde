@@ -1,4 +1,4 @@
-DESCRIPTION = "LXDE session autostart editor"
+SUMMARY = "LXDE session autostart editor"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 

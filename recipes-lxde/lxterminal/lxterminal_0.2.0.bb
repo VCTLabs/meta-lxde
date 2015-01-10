@@ -1,4 +1,4 @@
-DESCRIPTION = "Lightweight vte-based tabbed terminal emulator for LXDE"
+SUMMARY = "Lightweight vte-based tabbed terminal emulator for LXDE"
 HOMEPAGE = "http://lxde.sf.net"
 SECTION = "x11"
 LICENSE = "GPLv2"

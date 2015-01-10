@@ -1,4 +1,4 @@
-DESCRIPTION = "LXDE Appearance Obconfig"
+SUMMARY = "LXDE Appearance Obconfig"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 PR = "r1"

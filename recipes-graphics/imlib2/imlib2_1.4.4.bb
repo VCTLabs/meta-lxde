@@ -1,4 +1,4 @@
-DESCRIPTION = "A graphic library for file loading, saving, rendering, and manipulation."
+SUMMARY = "Graphic library for file loading, saving, rendering, and manipulation"
 LICENSE = "MIT | BSD"
 LIC_FILES_CHKSUM = "file://COPYING;md5=344895f253c32f38e182dcaf30fe8a35"
 DEPENDS = "freetype libpng jpeg giflib tiff zlib bzip2 virtual/libx11 libxext libid3tag"

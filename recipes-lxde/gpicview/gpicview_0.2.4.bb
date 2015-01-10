@@ -1,4 +1,4 @@
-DESCRIPTION = "Simple Image Viewer for X"
+SUMMARY = "Simple Image Viewer for X"
 HOMEPAGE = "http://lxde.sourceforge.net/gpicview"
 SECTION = "x11"
 
