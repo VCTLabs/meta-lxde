@@ -1,3 +1,47 @@
-meta-lxde
+OpenEmbedded/Yocto layer for LXDE
+=================================
 
-This layer has been extracted from https://github.com/tworaz/oe-tworaz 4671a9a952bd1eab19e64d0e6efb415ead31bbf3
+This layer provides recipes and packagegroups which allow to build
+Lightweight X11 Desktop Environment (LXDE).
+
+The layer has been extracted from
+URI: https://github.com/tworaz/oe-tworaz
+branch: master
+revision: 4671a9a952bd1eab19e64d0e6efb415ead31bbf3
+
+This layer depends on:
+
+URI: git://git.openembedded.org/openembedded-core
+branch: master
+revision: HEAD
+
+URI: git://git.openembedded.org/meta-openembedded
+meta-openembedded/meta-efl
+meta-openembedded/meta-gnome
+meta-openembedded/meta-oe
+branch: master
+revision: HEAD
+
+
+Contributing
+------------
+
+This layer is maintained by Toradex.
+
+When creating a patch of the last commit, use
+
+    git format-patch -s --subject-prefix='meta-lxde][<branch>][PATCH' -1
+
+To send it to the community, use
+
+    git send-email --to yocto-patches@toradex.com <generated patch>
+
+
+License
+-------
+
+All metadata is MIT licensed unless otherwise stated. Source code and
+binaries included in tree for individual recipes is under the LICENSE
+stated in each recipe (.bb file) unless otherwise stated.
+
+This README document is Copyright (C) 2015 Toradex AG.
