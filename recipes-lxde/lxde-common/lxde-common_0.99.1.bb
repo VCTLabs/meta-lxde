@@ -5,15 +5,13 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=597980c597fe9ce16d7b6b19c44cfced"
 
-PR = "r1"
-
 RDEPENDS_{PN} = "lxde-icon-theme"
 DEPENDS = "gtk+ lxde-icon-theme intltool-native"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxde-common-${PV}.tar.xz"
 
-SRC_URI[md5sum] = "5a417f5a0e5b510a0c018b66b0dc4081"
-SRC_URI[sha256sum] = "43f17bf92e4695fdf2476c1964990d1d61c832726dd0778ae4cb462b9d29335c"
+SRC_URI[md5sum] = "3ab92bd7bcff8bc8e6395651d164cf76"
+SRC_URI[sha256sum] = "8ca5ea3185fd3cacc28116cd9adfdc3b1d92a4ff891fccf135d35f0224c29827"
 
 inherit autotools pkgconfig update-alternatives
 
