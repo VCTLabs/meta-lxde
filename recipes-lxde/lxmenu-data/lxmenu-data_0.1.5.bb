@@ -11,8 +11,8 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxmenu-data-${PV}.tar.xz  \
            file://lxmenu-replace_am_glib_gnu_gettext.patch \
 "
 
-SRC_URI[md5sum] = "a44bb6214594fee21b8ef3e478b0f0e5"
-SRC_URI[sha256sum] = "8802fbc88e4cac80dbf0a2926deb30eeb127c54b93254d7bda591cbe174bfb1c"
+SRC_URI[md5sum] = "cc1989444284a65dbc7047348a68d6d4"
+SRC_URI[sha256sum] = "9fe3218d2ef50b91190162f4f923d6524c364849f87bcda8b4ed8eb59b80bab8"
 
 inherit autotools gettext pkgconfig
 
