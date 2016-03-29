@@ -10,8 +10,8 @@ DEPENDS = "gtk+ menu-cache lxmenu-data libxmu libxpm alsa-lib libwnck wireless-t
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxpanel-${PV}.tar.xz \
            file://lxpanel-broken-apps.patch \
 "
-SRC_URI[md5sum] = "6ea8dea8dc6c781b7adfbccbcd59c512"
-SRC_URI[sha256sum] = "c657eb049a0f59e7b2d1ad6cb621c272833b765705c19089e48b3c248351b1e0"
+SRC_URI[md5sum] = "8d7c93c4ebb4af8bf436ef6d3aee4ea9"
+SRC_URI[sha256sum] = "516ac4c83494ee99b2a0d2466458519a9a2668272eeff6d2162af3683b634104"
 
 inherit autotools gettext pkgconfig
 
