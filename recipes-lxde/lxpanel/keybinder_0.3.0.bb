@@ -1,8 +1,6 @@
 SUMMARY = "Library for registering global key bindings, for gtk applications"
 SECTION = "x11"
 
-PR = "r0"
-
 LICENSE = "X11"
 LIC_FILES_CHKSUM = "file://libkeybinder/bind.c;md5=2d2071c3f1c7563111ad40b6be7b0db6"
 

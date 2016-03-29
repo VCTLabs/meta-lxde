@@ -5,7 +5,6 @@ DEPENDS = "freetype libpng jpeg giflib tiff zlib bzip2 virtual/libx11 libxext li
 PROVIDES = "virtual/imlib2"
 
 PV = "1.4.4"
-PR = "r0"
 
 SRC_URI="http://downloads.sourceforge.net/project/enlightenment/imlib2-src/${PV}/imlib2-${PV}.tar.gz"
 SRC_URI[md5sum] = "9e7589e90519bc6ac2f4656ea6869439"
