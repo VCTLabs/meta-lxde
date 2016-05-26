@@ -5,7 +5,7 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
-DEPENDS = "jpeg gtk+"
+DEPENDS = "jpeg gtk+ intltool-native"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz"
 SRC_URI[md5sum] = "26be9b0c5a234f1afe7d83d02a4a33f4"
