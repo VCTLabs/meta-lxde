@@ -2,8 +2,7 @@ SUMMARY = "Tool for configuring the Openbox window manager"
 HOMEPAGE = "http://openbox.org/wiki/ObConf:About"
 SECTION = "x11"
 
-SRCREV = "500163e2c74cbbded0361574fd14d0a1168c1119"
-PR = "r2"
+SRCREV = "fa924b595e37f1b13ba4c2e64c367b92bbd3c771"
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
