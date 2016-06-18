@@ -1,0 +1,20 @@
+With gtk3 the desktop pager does confuse the constant width of the panel,
+it is drawn to a constant width depending on what is currently active resulting
+in its width being smaller or wider than fullscreen.
+
+Remove it from the default configuration.
+
+diff -Naur lxpanel-0.8.2.orig/data/default/panels/panel.in lxpanel-0.8.2/data/default/panels/panel.in
+--- lxpanel-0.8.2.orig/data/default/panels/panel.in	2016-06-18 14:33:25.398929460 +0200
++++ lxpanel-0.8.2/data/default/panels/panel.in	2016-06-18 14:40:09.486171468 +0200
+@@ -80,10 +80,6 @@
+ }
+ 
+ Plugin {
+-    type = pager
+-}
+-
+-Plugin {
+     type = space
+     Config {
+         Size=4

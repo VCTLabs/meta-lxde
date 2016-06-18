@@ -1,0 +1,22 @@
+diff -Naur lxpanel-0.8.2.orig/data/Makefile.am lxpanel-0.8.2/data/Makefile.am
+--- lxpanel-0.8.2.orig/data/Makefile.am	2014-09-22 12:00:03.000000000 +0200
++++ lxpanel-0.8.2/data/Makefile.am	2016-06-17 12:15:58.945463433 +0200
+@@ -25,6 +25,7 @@
+ 
+ # Purge GtkBuilder UI files
+ .glade.ui:
++	mkdir -p ui || exit 1;
+ 	sed 's/<!--.*-->//' < $< | sed ':a;N;$$!ba;s/ *\n *</</g' > $@
+ 
+ CLEANFILES = \
+diff -Naur lxpanel-0.8.2.orig/data/Makefile.in lxpanel-0.8.2/data/Makefile.in
+--- lxpanel-0.8.2.orig/data/Makefile.in	2016-02-20 23:29:21.000000000 +0100
++++ lxpanel-0.8.2/data/Makefile.in	2016-06-17 12:16:04.297400100 +0200
+@@ -726,6 +726,7 @@
+ 
+ # Purge GtkBuilder UI files
+ .glade.ui:
++	mkdir -p ui || exit 1;
+ 	sed 's/<!--.*-->//' < $< | sed ':a;N;$$!ba;s/ *\n *</</g' > $@
+ 
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
