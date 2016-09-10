@@ -1,0 +1,13 @@
+--- lxde-common-0.99.1/configure.ac~	2016-02-21 00:42:36.000000000 +0100
++++ lxde-common-0.99.1/configure.ac	2016-06-18 18:33:03.941490336 +0200
+@@ -59,7 +59,9 @@
+     echo $lang >> $srcdir/po/LINGUAS
+ done
+ 
+-AM_GLIB_GNU_GETTEXT
++#http://blogs.gnome.org/jjardon/2010/10/08/use-upstream-gettext-instead-the-gl
++AM_GNU_GETTEXT([external])
++AM_GNU_GETTEXT_VERSION([0.17])
+ 
+ IT_PROG_INTLTOOL([0.40.0])
+ 
