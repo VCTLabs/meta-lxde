@@ -7,6 +7,7 @@ inherit packagegroup
 
 RDEPENDS_${PN} = " \
     lxappearance \
+    lxappearance-obconf \
     lxde-icon-theme \
     lxde-common \
     lxmenu-data \
