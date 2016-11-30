@@ -1,0 +1,153 @@
+From 666c041de5a82daadc510ab31eae80dddbb8f669 Mon Sep 17 00:00:00 2001
+From: Max Krummenacher <max.krummenacher@toradex.com>
+Date: Sun, 6 Nov 2016 15:20:31 +0100
+Subject: [PATCH 2/2] taskbar: gtk3: calculate task width in code
+
+On Gtk+3, if the individual task buttons need more space than allocated for the
+taskbar, the taskbar gets expanded rather than decrease the task button size.
+
+Calculating the task button size in code rather than delegating this to the
+widgets works around the issue.
+---
+ plugins/launchtaskbar.c | 29 +++++++++++++++++++++++++++--
+ src/icon-grid.c         | 12 ++++++++++++
+ src/icon-grid.h         |  4 +++-
+ 3 files changed, 42 insertions(+), 3 deletions(-)
+
+diff --git a/plugins/launchtaskbar.c b/plugins/launchtaskbar.c
+index 22d197f..6e51c64 100644
+--- a/plugins/launchtaskbar.c
++++ b/plugins/launchtaskbar.c
+@@ -184,6 +184,7 @@ struct LaunchTaskBarPlugin {
+     gboolean same_monitor_only;    /* User preference: only show windows that are in the same monitor as the taskbar */
+     gboolean disable_taskbar_upscale; /* User preference: don't upscale taskbar icons */
+     int task_width_max;            /* Maximum width of a taskbar button in horizontal orientation */
++    int task_width;                /* Current width of a taskbar button in horizontal orientation */
+     int spacing;                   /* Spacing between taskbar buttons */
+     gboolean use_net_active;       /* NET_WM_ACTIVE_WINDOW is supported by the window manager */
+     gboolean net_active_checked;   /* True if use_net_active is valid */
+@@ -729,6 +730,7 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
+         if (config_setting_lookup_int(s, "DisableUpscale", &tmp_int))
+             ltbp->disable_taskbar_upscale = (tmp_int != 0);
+         config_setting_lookup_int(s, "MaxTaskWidth", &ltbp->task_width_max);
++        ltbp->task_width = ltbp->task_width_max;
+         config_setting_lookup_int(s, "spacing", &ltbp->spacing);
+         if (config_setting_lookup_int(s, "UseMouseWheel", &tmp_int))
+             ltbp->use_mouse_wheel = (tmp_int != 0);
+@@ -741,7 +743,7 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
+ 
+         /* Make container for task buttons as a child of top level widget. */
+         ltbp->tb_icon_grid = panel_icon_grid_new(panel_get_orientation(ltbp->panel),
+-                                                 ltbp->task_width_max,
++                                                 ltbp->task_width,
+                                                  ltbp->icon_size, ltbp->spacing, 0,
+                                                  panel_get_height(ltbp->panel));
+         panel_icon_grid_set_constrain_width(PANEL_ICON_GRID(ltbp->tb_icon_grid), TRUE);
+@@ -796,6 +798,7 @@ static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *s
+     ltbp->icons_only        = FALSE;
+     ltbp->show_all_desks    = TRUE;
+     ltbp->task_width_max    = TASK_WIDTH_MAX;
++    ltbp->task_width        = TASK_WIDTH_MAX;
+     ltbp->spacing           = 1;
+     ltbp->use_mouse_wheel   = TRUE;
+     ltbp->use_urgency_hint  = TRUE;
+@@ -1252,6 +1255,11 @@ static void on_spinbutton_max_width_value_changed(GtkSpinButton *p_spinbutton, g
+ {
+     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+     ltbp->task_width_max = gtk_spin_button_get_value(p_spinbutton);
++#if GTK_CHECK_VERSION(3, 0, 0)
++    ltbp->task_width = MIN(ltbp->task_width, ltbp->task_width_max);
++#else
++    ltbp->task_width = ltbp->task_width_max;
++#endif
+     //g_print("\ntb->task_width_max upd\n");
+     config_group_set_int(ltbp->settings, "MaxTaskWidth", ltbp->task_width_max);
+     taskbar_apply_configuration(ltbp);
+@@ -1648,6 +1656,23 @@ static void task_button_redraw(Task * tk, LaunchTaskBarPlugin * tb)
+ static void taskbar_redraw(LaunchTaskBarPlugin * tb)
+ {
+     Task * tk;
++#if GTK_CHECK_VERSION(3, 0, 0)
++/* in GTK3 the taskbar widget extendeds its width to (task_count * task_width)
++   rather than shrinking the individual task width.
++   so limit task_width here */
++
++    gint count = 0;
++    gint spacing, width;
++
++    panel_icon_grid_get_width(tb->tb_icon_grid, &width, &spacing);
++    for (tk = tb->p_task_list; tk != NULL; tk = tk->p_task_flink_xwid)
++        if (task_is_visible(tb, tk))
++            count++;
++    if (count)
++    tb->task_width = count ? MIN(tb->task_width_max, ((width - spacing) / count) - spacing) :
++                             tb->task_width_max;
++    taskbar_update_style(tb);
++#endif
+     for (tk = tb->p_task_list; tk != NULL; tk = tk->p_task_flink_xwid)
+         task_button_redraw(tk, tb);
+ }
+@@ -2805,7 +2830,7 @@ static void taskbar_update_style(LaunchTaskBarPlugin * tb)
+ {
+     panel_icon_grid_set_geometry(PANEL_ICON_GRID(tb->tb_icon_grid),
+         panel_get_orientation(tb->panel),
+-        ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width_max),
++        ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width),
+         tb->icon_size, tb->spacing, 0, panel_get_height(tb->panel));
+ }
+ 
+diff --git a/src/icon-grid.c b/src/icon-grid.c
+index e5096a9..ab71594 100644
+--- a/src/icon-grid.c
++++ b/src/icon-grid.c
+@@ -43,6 +43,7 @@ struct _PanelIconGrid
+     GList * children;				/* List of icon grid elements */
+     GtkOrientation orientation;			/* Desired orientation */
+     gint child_width;				/* Desired child width */
++    gint child_full_width;			/* Total assigned width */
+     gint child_height;				/* Desired child height */
+     gint spacing;				/* Desired spacing between grid elements */
+     gint target_dimension;			/* Desired dimension perpendicular to orientation */
+@@ -137,6 +138,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
+ 
+     /* Get the constrained child geometry if the allocated geometry is insufficient.
+      * All children are still the same size and share equally in the deficit. */
++    ig->child_full_width = child_allocation.width;
+     if ((ig->columns != 0) && (ig->rows != 0) && (child_allocation.width > 0))
+     {
+         if (ig->constrain_width &&
+@@ -318,6 +320,16 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
+ }
+ 
+ #if GTK_CHECK_VERSION(3, 0, 0)
++void panel_icon_grid_get_width(GtkWidget *widget, gint *width, gint *spacing)
++{
++    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
++
++    if(width)
++        *width = ig->child_full_width;
++    if(spacing)
++        *spacing = ig->spacing;
++}
++
+ static void panel_icon_grid_get_preferred_width(GtkWidget *widget,
+                                                 gint *minimal_width,
+                                                 gint *natural_width)
+diff --git a/src/icon-grid.h b/src/icon-grid.h
+index d0004a8..d382067 100644
+--- a/src/icon-grid.h
++++ b/src/icon-grid.h
+@@ -73,7 +73,9 @@ extern gint panel_icon_grid_get_child_position(PanelIconGrid * ig, GtkWidget * c
+ 						/* Get the index of an icon grid element. */
+ extern void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child, gint position);
+ 						/* Reorder the position of a child in the icon grid */
+-
++#if GTK_CHECK_VERSION(3, 0, 0)
++extern void panel_icon_grid_get_width(GtkWidget *widget, gint *width, gint *border);
++#endif
+ G_END_DECLS
+ 
+ #endif
+-- 
+2.6.6
+

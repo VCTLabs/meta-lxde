@@ -1,0 +1,47 @@
+From 75959d778aa0f0608c08d80494b4cf98a88e6979 Mon Sep 17 00:00:00 2001
+From: Max Krummenacher <max.krummenacher@toradex.com>
+Date: Sun, 6 Nov 2016 15:55:18 +0100
+Subject: [PATCH 1/2] panel.c: gtk3: set minimum geometry
+
+This prevents, that the pager plugin changes the with (or height) to the
+minimum width (or height) needed for what is displayed.
+---
+ src/panel.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/src/panel.c b/src/panel.c
+index b5daf37..741a085 100644
+--- a/src/panel.c
++++ b/src/panel.c
+@@ -293,6 +293,9 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
+ {
+     LXPanel *panel = LXPANEL(widget);
+     Panel *p = panel->priv;
++#if GTK_CHECK_VERSION(3, 0, 0)
++    GdkGeometry geometry;
++#endif
+     GdkRectangle rect;
+     gint x, y;
+ 
+@@ -327,6 +330,18 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
+         _panel_queue_update_background(panel);
+     }
+ 
++#if GTK_CHECK_VERSION(3, 0, 0)
++    memset(&geometry, 0, sizeof(geometry));
++/*    geometry.max_height = requisition.height;
++    geometry.max_width = requisition.width;
++    geometry.min_height = requisition.height;
++    geometry.min_width = requisition.width;
++*/
++    geometry.max_height = geometry.min_height = a->height;
++    geometry.max_width = geometry.min_width = a->width;
++    gtk_window_set_geometry_hints (GTK_WINDOW (widget), NULL,  &geometry, GDK_HINT_MIN_SIZE | GDK_HINT_MAX_SIZE);
++#endif
++
+     if (gtk_widget_get_mapped(widget))
+         _panel_establish_autohide(panel);
+ }
+-- 
+2.6.6
+
