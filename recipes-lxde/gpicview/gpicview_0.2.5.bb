@@ -5,7 +5,8 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
-DEPENDS = "jpeg gtk+ intltool-native"
+DEPENDS = "gtk+ intltool-native jpeg"
+RDEPENDS_${PN} = "adwaita-icon-theme"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz"
 SRC_URI[md5sum] = "26be9b0c5a234f1afe7d83d02a4a33f4"
