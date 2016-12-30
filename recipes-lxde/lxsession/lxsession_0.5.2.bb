@@ -8,7 +8,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a76102f7f48780284bee49e6edaeb5a9"
 
 DEPENDS = "dbus dbus-glib glib-2.0 intltool-native libgee libunique virtual/libx11 lxde-common polkit xproto"
-RDEPENDS_{PN} = "upower dbus-x11"
+RDEPENDS_${PN} = "upower dbus-x11"
 
 SRC_URI  = "${SOURCEFORGE_MIRROR}/lxde/lxsession-${PV}.tar.xz"
 SRC_URI += "file://gtk3.patch"

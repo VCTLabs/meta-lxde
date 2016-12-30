@@ -5,7 +5,7 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=597980c597fe9ce16d7b6b19c44cfced"
 
-RDEPENDS_{PN} = "lxde-icon-theme"
+RDEPENDS_${PN} = "lxde-icon-theme"
 DEPENDS = "intltool-native"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxde-common-${PV}.tar.xz \
