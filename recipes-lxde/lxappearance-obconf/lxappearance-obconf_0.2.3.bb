@@ -4,7 +4,7 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-DEPENDS = "intltool-native libcroco librsvg lxappearance menu-cache openbox"
+DEPENDS = "glib-2.0-native intltool-native libcroco librsvg lxappearance menu-cache openbox"
 
 SRC_URI  = "${SOURCEFORGE_MIRROR}/lxde/lxappearance-obconf-${PV}.tar.xz"
 # only needed for gtk3, applied unconditionally thow
