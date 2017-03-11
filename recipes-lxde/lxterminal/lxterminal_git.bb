@@ -4,7 +4,7 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
-DEPENDS = "gtk+3 vte glib-2.0 intltool-native xmlto-native"
+DEPENDS = "glib-2.0 glib-2.0-native gtk+3 intltool-native vte xmlto-native"
 
 SRC_URI = " \
     git://github.com/lxde/lxterminal.git;protocol=https \
