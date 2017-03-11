@@ -5,7 +5,7 @@ SECTION = "x11"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-DEPENDS = "virtual/libintl intltool-native glib-2.0"
+DEPENDS = "glib-2.0-native glib-2.0 intltool-native virtual/libintl"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz"
 SRC_URI[md5sum] = "69680debaef053d540ae3a5f4b237150"
