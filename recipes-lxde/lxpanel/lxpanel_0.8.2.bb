@@ -5,7 +5,7 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=9d19a9495cc76dc96b703fb4aa157183"
 
-DEPENDS = "gtk+3 intltool-native menu-cache lxmenu-data libxmu libxpm alsa-lib libwnck3 wireless-tools pcmanfm libxml2 keybinder-3.0"
+DEPENDS = "alsa-lib glib-2.0-native gtk+3 intltool-native keybinder-3.0 libwnck3 libxml2 libxmu libxpm lxmenu-data menu-cache pcmanfm wireless-tools"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxpanel-${PV}.tar.xz \
            file://lxpanel-broken-apps.patch \
