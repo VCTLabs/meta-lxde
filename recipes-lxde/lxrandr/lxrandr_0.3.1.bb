@@ -5,7 +5,7 @@ SECTION = "x11"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-DEPENDS = "virtual/libintl intltool-native xrandr"
+DEPENDS = "glib-2.0-native intltool-native virtual/libintl xrandr"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxrandr-${PV}.tar.xz"
 
