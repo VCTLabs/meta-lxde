@@ -1,0 +1,81 @@
+From 81c49c9cb5180894fee6adab99d4d2e982d2a293 Mon Sep 17 00:00:00 2001
+From: Max Krummenacher <max.krummenacher@toradex.com>
+Date: Sat, 25 Mar 2017 17:51:53 +0100
+Subject: [PATCH] lxrandr.c: improve xrandr output parser to cope with i.mx 6
+
+Prevents segmentation fault on i.MX 6 because the xrandr output can not be
+parsed and no monitors are found.
+
+The Vivante Xdriver reports output names with spaces and multiple numbers,
+resolution is given as an unusual string.
+
+root@colibri-imx6:~# xrandr
+Screen 0: minimum 240 x 240, current 1920 x 1080, maximum 8192 x 8192
+DISP3 BG - DI1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+   S:1920x1080p-60  60.00*+
+   S:1920x1080p-50  50.00
+   U:1680x1050p-60  60.00
+   V:1280x1024p-75  75.03
+
+vs.
+
+x86> xrandr
+Screen 0: minimum 8 x 8, current 3840 x 1200, maximum 16384 x 16384
+DVI-D-0 connected 1920x1200+0+0 (normal left inverted right x axis y axis) 518mm x 324mm
+   1920x1200      60.0*+
+   1600x1200      60.0
+
+Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
+---
+ src/lxrandr.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/src/lxrandr.c b/src/lxrandr.c
+index 33e02b2..b8c266d 100644
+--- a/src/lxrandr.c
++++ b/src/lxrandr.c
+@@ -118,8 +118,8 @@ static gboolean get_xrandr_info()
+         return FALSE;
+     }
+ 
+-    regex = g_regex_new( "\n([-a-zA-Z]+[-0-9]*) +connected ([^(\n ]*)[^\n]*"
+-                         "((\n +[0-9]+x[0-9]+[^\n]+)+)",
++    regex = g_regex_new( "\n([ -a-zA-Z0-9]+[-0-9]*) +connected [ a-zA-Z]*([^(\n ]*)[^\n]*"
++                         "((\n +[SUV:]*[0-9]+x[0-9]+.*[^\n]+)+)",
+                          0, 0, NULL );
+     if( g_regex_match( regex, output, 0, &match ) )
+     {
+@@ -343,8 +343,9 @@ static GString* get_command_xrandr_info()
+     for( l = monitors; l; l = l->next )
+     {
+         Monitor* m = (Monitor*)l->data;
+-        g_string_append( cmd, " --output " );
++        g_string_append( cmd, " --output \"" );
+         g_string_append( cmd, m->name );
++        g_string_append( cmd, "\"" );
+ 
+         // if the monitor is turned on
+         if (m->try_mode >= 0)
+@@ -403,7 +404,9 @@ static GString* get_command_xrandr_info()
+                 case PLACEMENT_DEFAULT:
+                     g_string_append(cmd, " --same-as ");
+                 }
++                g_string_append(cmd, "\"");
+                 g_string_append(cmd, LVDS->name);
++                g_string_append(cmd, "\"");
+             }
+             else if (l != monitors)
+             {
+@@ -426,7 +429,9 @@ static GString* get_command_xrandr_info()
+                 case PLACEMENT_DEFAULT:
+                     g_string_append(cmd, " --same-as ");
+                 }
++                g_string_append(cmd, "\"");
+                 g_string_append(cmd, first->name);
++                g_string_append(cmd, "\"");
+             }
+ 
+             /* g_string_append( cmd, "" ); */
+-- 
+2.6.6
+
