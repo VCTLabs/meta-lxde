@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 DEPENDS = "glib-2.0-native menu-cache intltool-native startup-notification"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/lxde/lxlauncher-${PV}.tar.xz"
-SRC_URI[md5sum] = "8a21590c085ad82f4f50e4affb7ad0ab"
-SRC_URI[sha256sum] = "01b7408a6d6f42769e94a54028f56dc8e724c2271d6bc01712b728569c1b9103"
+SRC_URI[md5sum] = "94a7a36af92f8409365b6a25b6904eeb"
+SRC_URI[sha256sum] = "cd14b59cf337e7ba0d67efc95cd79859ab5f0f85af5a84c7aff771f868c3dca7"
 
 FILES_${PN} += "${datadir}/desktop-directories/* "
 
