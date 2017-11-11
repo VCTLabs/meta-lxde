@@ -1,0 +1,97 @@
+From 257162a05efa1abb4ded2514b753c27e203a4635 Mon Sep 17 00:00:00 2001
+From: Max Krummenacher <max.krummenacher@toradex.com>
+Date: Sat, 21 Oct 2017 15:29:36 +0200
+Subject: [PATCH 2/2] GTK+3: GtkObject no longer exists
+
+The destroy functionallity is provided by the GWidget class.
+
+Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
+---
+ lxsession-default-apps/combobox.c | 13 +++++++++++++
+ lxsession-default-apps/main.c     | 12 ++++++++++++
+ 2 files changed, 25 insertions(+)
+
+diff --git a/lxsession-default-apps/combobox.c b/lxsession-default-apps/combobox.c
+index e38515b..1b5960f 100644
+--- a/lxsession-default-apps/combobox.c
++++ b/lxsession-default-apps/combobox.c
+@@ -2935,7 +2935,11 @@ static void _____lambda13_ (Block16Data* _data16_) {
+ 	_tmp0__length1 = _data15_->mime_list_length1;
+ 	_tmp1_ = _data16_->base_name;
+ 	ldefault_apps_save_mime_type (_tmp0_, _tmp0__length1, _tmp1_);
++#if USE_GTK2
+ 	gtk_object_destroy ((GtkObject*) _data14_->window_mime);
++#else
++	gtk_widget_destroy ((GtkWidget*) _data14_->window_mime);
++#endif
+ }
+ 
+ 
+@@ -2949,7 +2953,12 @@ static void _____lambda14_ (Block16Data* _data16_) {
+ 	Block14Data* _data14_;
+ 	_data15_ = _data16_->_data15_;
+ 	_data14_ = _data15_->_data14_;
++#if USE_GTK2
+ 	gtk_object_destroy ((GtkObject*) _data14_->window_mime);
++#else
++	gtk_widget_destroy ((GtkWidget*) _data14_->window_mime);
++#endif
++
+ }
+ 
+ 
+@@ -3395,7 +3404,11 @@ void ldefault_apps_create_mime_associate_window (LDefaultAppsDbusBackend* dbus_b
+ 				block16_data_unref (_data16_);
+ 				_data16_ = NULL;
+ 			} else {
++#if USE_GTK2
+ 				gtk_object_destroy ((GtkObject*) _data14_->window_mime);
++#else
++				gtk_widget_destroy ((GtkWidget*) _data14_->window_mime);
++#endif
+ 			}
+ 			_tmp59_ = (_vala_array_free (_tmp59_, _tmp59__length1, (GDestroyNotify) g_free), NULL);
+ 		}
+diff --git a/lxsession-default-apps/main.c b/lxsession-default-apps/main.c
+index 59bdb2b..3fcec8e 100644
+--- a/lxsession-default-apps/main.c
++++ b/lxsession-default-apps/main.c
+@@ -136,7 +136,11 @@ enum  {
+ GType ldefault_apps_dbus_backend_get_type (void) G_GNUC_CONST;
+ static Block4Data* block4_data_ref (Block4Data* _data4_);
+ static void block4_data_unref (void * _userdata_);
++#if USE_GTK2
+ static void _gtk_main_quit_gtk_object_destroy (GtkObject* _sender, gpointer self);
++#else
++static void _gtk_main_quit_gtk_object_destroy (GtkWidget* _sender, gpointer self);
++#endif
+ LDefaultAppsDbusBackend* ldefault_apps_dbus_backend_new (const gchar* type);
+ LDefaultAppsDbusBackend* ldefault_apps_dbus_backend_construct (GType object_type, const gchar* type);
+ void ldefault_apps_manual_autostart_init (GtkBuilder* builder);
+@@ -399,7 +403,11 @@ static void block4_data_unref (void * _userdata_) {
+ }
+ 
+ 
++#if USE_GTK2
+ static void _gtk_main_quit_gtk_object_destroy (GtkObject* _sender, gpointer self) {
++#else
++static void _gtk_main_quit_gtk_object_destroy (GtkWidget* _sender, gpointer self) {
++#endif
+ 	gtk_main_quit ();
+ }
+ 
+@@ -1809,7 +1817,11 @@ LDefaultAppsMainWindows* ldefault_apps_main_windows_construct (GType object_type
+ 		return NULL;
+ 	}
+ 	gtk_window_set_default_size ((GtkWindow*) self, 600, 400);
++#if USE_GTK2
+ 	g_signal_connect ((GtkObject*) self, "destroy", (GCallback) _gtk_main_quit_gtk_object_destroy, NULL);
++#else
++	g_signal_connect ((GtkWidget*) self, "destroy", (GCallback) _gtk_main_quit_gtk_object_destroy, NULL);
++#endif
+ 	_tmp6_ = gtk_builder_new ();
+ 	builder = _tmp6_;
+ 	{
+-- 
+2.9.4
+

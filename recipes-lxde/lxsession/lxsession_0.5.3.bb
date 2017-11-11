@@ -11,9 +11,10 @@ DEPENDS = "dbus dbus-glib glib-2.0 intltool-native libgee libunique virtual/libx
 RDEPENDS_${PN} = "upower dbus-x11"
 
 SRC_URI  = "${SOURCEFORGE_MIRROR}/lxde/lxsession-${PV}.tar.xz"
-SRC_URI += "file://gtk3.patch"
-SRC_URI[md5sum] = "2957acccbf9ce37ef8205ec5424f8047"
-SRC_URI[sha256sum] = "2d55e9ea80057fe5ffd68a91a15bb004ad7bf019e50807a8bb9b342115efaada"
+SRC_URI += "file://0001-replace-use-of-UniqueApp-with-GtkApplication.patch"
+SRC_URI += "file://0002-GTK-3-GtkObject-no-longer-exists.patch"
+SRC_URI[md5sum] = "823c50e6d0e4ce15a23a42e8f8bf4221"
+SRC_URI[sha256sum] = "90bf42a45421f45f2c745d60f2c730176e1472642451c06c2ab07dcebdaf1fa8"
 
 PACKAGECONFIG ?= "gtk3"
 PACKAGECONFIG[gtk3] = "--enable-gtk3,,gtk+3"
