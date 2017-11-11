@@ -7,11 +7,11 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 DEPENDS = "glib-2.0 glib-2.0-native gtk+3 intltool-native vte xmlto-native"
 
 SRC_URI = " \
-    git://github.com/lxde/lxterminal.git;protocol=https \
+    ${SOURCEFORGE_MIRROR}/lxde/lxterminal-${PV}.tar.xz \
     file://0002-man-Makefile.am-don-t-error-out-on-missing-man-depen.patch \
 "
-SRCREV = "2cea95a7a8c4179e862ac3cb5036bf4e8316fff7"
-S = "${WORKDIR}/git"
+SRC_URI[md5sum] = "91febe1ec15297844333cb70f237b4b7"
+SRC_URI[sha256sum] = "cd8df387c2dd40e03b48caacf700820f9421b421954a0ed56395f505411d2c4b"
 
 EXTRA_OECONF += "--enable-gtk3 --enable-man"
 
