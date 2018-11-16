@@ -10,8 +10,8 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/lxde/lxterminal-${PV}.tar.xz \
     file://0002-man-Makefile.am-don-t-error-out-on-missing-man-depen.patch \
 "
-SRC_URI[md5sum] = "91febe1ec15297844333cb70f237b4b7"
-SRC_URI[sha256sum] = "cd8df387c2dd40e03b48caacf700820f9421b421954a0ed56395f505411d2c4b"
+SRC_URI[md5sum] = "62e57c3aafb831505cc1638b2b737cc9"
+SRC_URI[sha256sum] = "3166b18493a8e55811b02aa0de825cbbea65e2b628e69006c1a65b98e1bb4484"
 
 EXTRA_OECONF += "--enable-gtk3 --enable-man"
 
