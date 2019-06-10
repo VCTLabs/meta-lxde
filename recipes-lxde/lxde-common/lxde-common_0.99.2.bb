@@ -19,7 +19,6 @@ inherit autotools gettext update-alternatives
 
 FILES_${PN} += "${datadir}/lxde/ ${datadir}/lxpanel ${datadir}/xsessions"
 
-ALTERNATIVE_${PN} = "x-window-manager"
-ALTERNATIVE_LINK_NAME[x-window-manager] = "${bindir}/x-window-manager"
-ALTERNATIVE_TARGET[x-window-manager] = "${bindir}/startlxde"
-ALTERNATIVE_PRIORITY[x-window-manager] = "15"
+ALTERNATIVE_${PN} = "x-session-manager"
+ALTERNATIVE_TARGET[x-session-manager] = "${bindir}/startlxde"
+ALTERNATIVE_PRIORITY[x-session-manager] = "110"
