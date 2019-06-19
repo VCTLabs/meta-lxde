@@ -26,6 +26,6 @@ python __anonymous () {
         d.setVar("DEPENDS", "%s gtk+" % depends)
 }
 
-inherit autotools pkgconfig gettext gobject-introspection
+inherit autotools pkgconfig gettext
 
 FILES_${PN} += "${datadir}/lxsession"
