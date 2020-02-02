@@ -16,6 +16,6 @@ PACKAGECONFIG ?= "gtk3"
 PACKAGECONFIG[gtk2] = ",,gtk+"
 PACKAGECONFIG[gtk3] = "--enable-gtk3,,gtk+3"
 
-inherit autotools gettext pkgconfig
+inherit autotools gettext mime-xdg pkgconfig
 
 FILES_${PN} += "${datadir}/icons/*"
