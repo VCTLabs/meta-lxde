@@ -12,8 +12,8 @@ SRC_URI = " \
     file://0001-lxrandr.c-improve-xrandr-output-parser-to-cope-with-.patch \
 "
 
-SRC_URI[md5sum] = "b327938f18a4baac85c4707f927d606e"
-SRC_URI[sha256sum] = "6d98338485a90d9e47f6d08184df77ca0d9715517f8a45a914e861750589184e"
+SRC_URI[md5sum] = "5101ab29d87fb2b56a5ec5bc8bc3f258"
+SRC_URI[sha256sum] = "8b5edfc9718061bc161fe51d388697cbaa819d6f8013ed24ba22f438e0dbc312"
 
 PACKAGECONFIG ?= "gtk3"
 PACKAGECONFIG[gtk3] = "--enable-gtk3,,gtk+3"

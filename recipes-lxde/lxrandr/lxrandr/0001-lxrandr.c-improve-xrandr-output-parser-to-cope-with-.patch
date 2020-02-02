@@ -1,4 +1,4 @@
-From 81c49c9cb5180894fee6adab99d4d2e982d2a293 Mon Sep 17 00:00:00 2001
+From 184a6e9dad1adc67d6d3d8e4682e987aee644194 Mon Sep 17 00:00:00 2001
 From: Max Krummenacher <max.krummenacher@toradex.com>
 Date: Sat, 25 Mar 2017 17:51:53 +0100
 Subject: [PATCH] lxrandr.c: improve xrandr output parser to cope with i.mx 6
@@ -31,21 +31,21 @@ Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
  1 file changed, 8 insertions(+), 3 deletions(-)
 
 diff --git a/src/lxrandr.c b/src/lxrandr.c
-index 33e02b2..b8c266d 100644
+index 0d46e9c..c40d446 100644
 --- a/src/lxrandr.c
 +++ b/src/lxrandr.c
 @@ -118,8 +118,8 @@ static gboolean get_xrandr_info()
          return FALSE;
      }
  
--    regex = g_regex_new( "\n([-a-zA-Z]+[-0-9]*) +connected ([^(\n ]*)[^\n]*"
+-    regex = g_regex_new( "\n([-\\.a-zA-Z]+[-\\.0-9]*) +connected ([^(\n ]*)[^\n]*"
 -                         "((\n +[0-9]+x[0-9]+[^\n]+)+)",
-+    regex = g_regex_new( "\n([ -a-zA-Z0-9]+[-0-9]*) +connected [ a-zA-Z]*([^(\n ]*)[^\n]*"
++    regex = g_regex_new( "\n([ -\\.a-zA-Z0-9]+[-\\.0-9]*) +connected [ a-zA-Z]*([^(\n ]*)[^\n]*"
 +                         "((\n +[SUV:]*[0-9]+x[0-9]+.*[^\n]+)+)",
                           0, 0, NULL );
      if( g_regex_match( regex, output, 0, &match ) )
      {
-@@ -343,8 +343,9 @@ static GString* get_command_xrandr_info()
+@@ -349,8 +349,9 @@ static GString* get_command_xrandr_info()
      for( l = monitors; l; l = l->next )
      {
          Monitor* m = (Monitor*)l->data;
@@ -56,7 +56,7 @@ index 33e02b2..b8c266d 100644
  
          // if the monitor is turned on
          if (m->try_mode >= 0)
-@@ -403,7 +404,9 @@ static GString* get_command_xrandr_info()
+@@ -409,7 +410,9 @@ static GString* get_command_xrandr_info()
                  case PLACEMENT_DEFAULT:
                      g_string_append(cmd, " --same-as ");
                  }
@@ -66,7 +66,7 @@ index 33e02b2..b8c266d 100644
              }
              else if (l != monitors)
              {
-@@ -426,7 +429,9 @@ static GString* get_command_xrandr_info()
+@@ -432,7 +435,9 @@ static GString* get_command_xrandr_info()
                  case PLACEMENT_DEFAULT:
                      g_string_append(cmd, " --same-as ");
                  }
@@ -77,5 +77,5 @@ index 33e02b2..b8c266d 100644
  
              /* g_string_append( cmd, "" ); */
 -- 
-2.6.6
+2.20.1
 
