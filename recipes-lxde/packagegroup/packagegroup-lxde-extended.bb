@@ -11,6 +11,7 @@ RDEPENDS_${PN} = "\
 
 RRECOMMENDS_${PN} = " \
     gpicview \
+    l3afpad \
     lxhotkey \
     lxlauncher \
     lxinput \
