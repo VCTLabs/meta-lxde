@@ -2,8 +2,6 @@ SUMMARY = "LXDE session manager"
 HOMEPAGE = "http://lxde.sf.net/"
 SECTION = "x11"
 
-PR = "r3"
-
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a76102f7f48780284bee49e6edaeb5a9"
 
@@ -15,8 +13,8 @@ SRC_URI  = " \
     file://0001-replace-use-of-UniqueApp-with-GtkApplication.patch \
     file://0002-GTK-3-GtkObject-no-longer-exists.patch \
 "
-SRC_URI[md5sum] = "823c50e6d0e4ce15a23a42e8f8bf4221"
-SRC_URI[sha256sum] = "90bf42a45421f45f2c745d60f2c730176e1472642451c06c2ab07dcebdaf1fa8"
+SRC_URI[md5sum] = "e255aaf3c2a8e49812e3477fb3f099b0"
+SRC_URI[sha256sum] = "252f84c80fd3713a506cc8d8ac9773175712d47b031cacc08c8027622ce7ec5d"
 
 PACKAGECONFIG ?= "gtk3"
 PACKAGECONFIG[gtk3] = "--enable-gtk3,,gtk+3"
