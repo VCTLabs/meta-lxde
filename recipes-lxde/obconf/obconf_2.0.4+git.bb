@@ -2,12 +2,12 @@ SUMMARY = "Tool for configuring the Openbox window manager"
 HOMEPAGE = "http://openbox.org/wiki/ObConf:About"
 SECTION = "x11"
 
-SRCREV = "fa924b595e37f1b13ba4c2e64c367b92bbd3c771"
+SRCREV = "63ec47c5e295ad4f09d1df6d92afb7e10c3fec39"
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
-DEPENDS = "gtk+ glib-2.0 libglade startup-notification openbox"
+DEPENDS = "gtk+3 glib-2.0 startup-notification openbox"
 
 MIRRORS_prepend () {
     git://git.openbox.org/dana/obconf git://github.com/danakj/obconf.git
@@ -20,7 +20,7 @@ S = "${WORKDIR}/git"
 
 FILES_${PN} += "${datadir}/mime ${datadir}/mimelnk"
 
-inherit autotools-brokensep pkgconfig gettext mime
+inherit autotools-brokensep pkgconfig gettext mime mime-xdg
 
 do_configure_prepend () {
 	autopoint --force || bbfatal "autopoint failed"
