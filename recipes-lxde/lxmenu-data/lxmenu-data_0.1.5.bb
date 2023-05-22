@@ -2,7 +2,7 @@ SUMMARY = "Data files for application menu "
 HOMEPAGE = "http://lxde.sourceforge.net/"
 SECTION = "x11"
 
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0964c689fcf4c21c6797ea87408416b6"
 
 DEPENDS = "intltool-native"
@@ -16,5 +16,5 @@ SRC_URI[sha256sum] = "9fe3218d2ef50b91190162f4f923d6524c364849f87bcda8b4ed8eb59b
 
 inherit autotools gettext pkgconfig
 
-FILES_${PN} += "${datadir}/desktop-directories/"
+FILES:${PN} += "${datadir}/desktop-directories/"
 

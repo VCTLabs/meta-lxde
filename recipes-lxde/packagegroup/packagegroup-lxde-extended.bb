@@ -5,11 +5,11 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 
 inherit packagegroup
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     packagegroup-lxde-base \
 "
 
-RRECOMMENDS_${PN} = " \
+RRECOMMENDS:${PN} = " \
     gpicview \
     l3afpad \
     lxhotkey \

@@ -2,7 +2,7 @@ SUMMARY = "LXDE tool to edit desktop entry files"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 DEPENDS = "virtual/libintl intltool-native glib-2.0"

@@ -2,11 +2,11 @@ SUMMARY = "LXDE session manager"
 HOMEPAGE = "http://lxde.sf.net/"
 SECTION = "x11"
 
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a76102f7f48780284bee49e6edaeb5a9"
 
 DEPENDS = "dbus dbus-glib glib-2.0 intltool-native libgee libunique virtual/libx11 lxde-common polkit vala-native xorgproto"
-RDEPENDS_${PN} = "upower dbus-x11"
+RDEPENDS:${PN} = "upower dbus-x11"
 
 SRC_URI  = " \
     ${SOURCEFORGE_MIRROR}/lxde/lxsession-${PV}.tar.xz \
@@ -26,4 +26,4 @@ python __anonymous () {
 
 inherit autotools pkgconfig gettext
 
-FILES_${PN} += "${datadir}/lxsession"
+FILES:${PN} += "${datadir}/lxsession"

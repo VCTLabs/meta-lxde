@@ -2,7 +2,7 @@ SUMMARY = "LXHotkey is a hotkeys management utility"
 HOMEPAGE = "https://wiki.lxde.org/en/LXHotkey"
 SECTION = "x11"
 
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4641e94ec96f98fabc56ff9cc48be14b"
 
 DEPENDS = "libexif libfm glib-2.0 glib-2.0-native intltool-native virtual/libintl"

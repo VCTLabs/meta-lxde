@@ -1,7 +1,7 @@
 SUMMARY = "LXDE Appearance Obconfig"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "glib-2.0-native intltool-native libcroco librsvg lxappearance menu-cache openbox"
@@ -24,12 +24,12 @@ python __anonymous () {
 
 inherit autotools gettext pkgconfig
 
-FILES_${PN} += "${datadir}/lxappearance/obconf/obconf.glade \
+FILES:${PN} += "${datadir}/lxappearance/obconf/obconf.glade \
 	${libdir}/lxappearance/plugins/obconf.so"
-FILES_${PN}-dbg += "${libdir}/lxappearance/plugins/.debug/obconf.so"
-FILES_${PN}-dev += "${libdir}/lxappearance/plugins/obconf.la "
-FILES_${PN}-staticdev += "${libdir}/lxappearance/plugins/obconf.a "
+FILES:${PN}-dbg += "${libdir}/lxappearance/plugins/.debug/obconf.so"
+FILES:${PN}-dev += "${libdir}/lxappearance/plugins/obconf.la "
+FILES:${PN}-staticdev += "${libdir}/lxappearance/plugins/obconf.a "
 
-do_install_append () {
+do_install:append () {
     find ${D} -exec ls -l {} \;
 }

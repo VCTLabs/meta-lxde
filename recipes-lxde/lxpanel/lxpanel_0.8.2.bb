@@ -2,7 +2,7 @@ SUMMARY = "LXDE Panel"
 HOMEPAGE = "http://lxde.org/"
 SECTION = "x11"
 
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=9d19a9495cc76dc96b703fb4aa157183"
 
 DEPENDS = "alsa-lib glib-2.0-native gtk+3 intltool-native keybinder-3.0 libwnck3 libxml2 libxmu libxpm lxmenu-data menu-cache pcmanfm wireless-tools"
@@ -21,5 +21,5 @@ inherit autotools gettext pkgconfig
 
 EXTRA_OECONF += "--enable-alsa --enable-gtk3 --with-x --with-plugins=all"
 
-FILES_${PN}-dbg += "${libdir}/lxpanel/plugins/.debug"
-FILES_${PN}-dev += "${libdir}/lxpanel/*.so"
+FILES:${PN}-dbg += "${libdir}/lxpanel/plugins/.debug"
+FILES:${PN}-dev += "${libdir}/lxpanel/*.so"

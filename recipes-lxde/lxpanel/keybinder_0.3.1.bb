@@ -14,4 +14,4 @@ inherit autotools gettext gobject-introspection pkgconfig
 
 EXTRA_OECONF += " --disable-lua --disable-python"
 
-FILES_${PN}-dbg += "${libdir}/lxpanel/plugins/.debug"
+FILES:${PN}-dbg += "${libdir}/lxpanel/plugins/.debug"

@@ -2,11 +2,11 @@ SUMMARY = "Simple Image Viewer for X"
 HOMEPAGE = "http://lxde.sourceforge.net/gpicview"
 SECTION = "x11"
 
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
 DEPENDS = "glib-2.0-native intltool-native jpeg"
-RDEPENDS_${PN} = "adwaita-icon-theme"
+RDEPENDS:${PN} = "adwaita-icon-theme"
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/lxde/${P}.tar.xz \
@@ -21,4 +21,4 @@ PACKAGECONFIG[gtk3] = "--enable-gtk3,,gtk+3"
 
 inherit autotools gettext mime-xdg pkgconfig
 
-FILES_${PN} += "${datadir}/icons/*"
+FILES:${PN} += "${datadir}/icons/*"
